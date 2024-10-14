@@ -46,7 +46,7 @@ module.exports = async function () {
         const url = `https://github.com/duckdb/duckdb/releases/download/${selectedVersion}/duckdb_cli-linux-amd64.zip`
         const wgetCmd = `wget ${url}`
         const unzipCmd = `unzip duckdb_cli-linux-amd64.zip`
-        const installCmd = 'mkdir -p /opt/duckdb && mv duckdb /opt/duckdb && chmod +x /opt/duckdb/duckdb && (test -d /usr/bin/duckdb || sudo ln -s /opt/duckdb/duckdb /usr/bin/duckdb)'
+        const installCmd = 'mkdir -p /opt/duckdb && mv duckdb /opt/duckdb && chmod +x /opt/duckdb/duckdb && (test -e /usr/bin/duckdb || sudo ln -s /opt/duckdb/duckdb /usr/bin/duckdb)'
         const checkVersionCmd = 'duckdb --version'
         const cleanupCmd = 'rm duckdb_cli-linux-amd64.zip'
 
